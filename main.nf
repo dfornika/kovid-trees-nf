@@ -19,7 +19,7 @@ include { GOALIGN_REPLACE } from './modules/goalign/replace/main.nf' addParams(o
     args: "-e -s '[^ACTGactg]' -n '-'"
 ])
 include { GOALIGN_CLEAN_SEQS } from './modules/goalign/clean/seqs/main.nf' addParams(options: [
-    args: "--cutoff 0.05"
+    args: "--cutoff ${params.goalign_clean_seqs_cutoff}"
 ])
 include { CLIPKIT } from './modules/clipkit/main.nf' addParams([:])
 include { GOALIGN_DEDUP } from './modules/goalign/dedup/main.nf' addParams([:])
